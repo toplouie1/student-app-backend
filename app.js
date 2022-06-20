@@ -4,8 +4,10 @@ const express = require("express");
 const app = express();
 
 const studentsController = require("./controllers/studentscontroller");
+const nameController = require("./controllers/nameController");
 
 app.use("/students", studentsController);
+app.use("/names", nameController);
 
 // route
 app.get("/", (req, res) => {
