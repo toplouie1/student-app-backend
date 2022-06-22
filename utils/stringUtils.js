@@ -2,7 +2,13 @@
 // n times with a space in the middle of each time .
 
 function repeatNTimesWithSpace(string, n) {
-	return (string + " ").repeat(n);
+	if (!string) return "";
+	return new Array(n).fill(string).join(" ");
 }
 
-module.exports = repeatNTimesWithSpace;
+function capitalizeFirstLetter(string) {
+	if (!string) return "";
+	return string[0].toUpperCase() + string.slice(1);
+}
+
+module.exports = { repeatNTimesWithSpace, capitalizeFirstLetter };
