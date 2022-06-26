@@ -41,11 +41,5 @@ controller.get("/:id", (req, res) => {
 	}
 });
 
-// write a route to get a student by their full name
-
-controller.get("/", (req, res) => {
-	let fullName = req.query.fullName;
-	console.log(fullName);
-});
-
+// write a route to get a student by their full nam
 module.exports = controller;
