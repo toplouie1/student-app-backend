@@ -3,9 +3,23 @@ const controller = express.Router();
 
 const studentData = require("../studentData.json");
 
+// getting student data depending on limit
+
 controller.get("/", (req, res) => {
-	res.json({ studentData });
+	// how do i hanle a query string ?
+	let { limit = 25 } = req.query;
+	limit = Number(limit);
+	let studentDataForDelivery = { ...studentData };
+
+	studentDataForDelivery.students = studentDataForDelivery.students.slice(
+		0,
+		limit
+	);
+
+	res.json({ studentDataForDelivery });
 });
+
+//  student depending on their id
 
 controller.get("/:id", (req, res) => {
 	try {
@@ -25,6 +39,13 @@ controller.get("/:id", (req, res) => {
 	} catch (err) {
 		res.status(500).send("An error occurred");
 	}
+});
+
+// write a route to get a student by their full name
+
+controller.get("/", (req, res) => {
+	let fullName = req.query.fullName;
+	console.log(fullName);
 });
 
 module.exports = controller;
