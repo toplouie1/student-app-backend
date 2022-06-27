@@ -1,7 +1,11 @@
 const express = require("express");
+const cors = require("cors");
 
 // initialize app
 const app = express();
+
+// Middle ware
+app.use(cors);
 
 const studentsController = require("./controllers/studentscontroller");
 const nameController = require("./controllers/nameController");
